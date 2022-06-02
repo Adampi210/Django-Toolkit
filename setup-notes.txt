@@ -1,0 +1,9 @@
+Setting up the virtual environment:
+	1. cd into the desired directory where the environment will be set up
+	2. use virtualenv -p python3 . to create the virtual environment (name same as the directory name)
+	3. use source bin/activate to activate the environment (or cd to bin and use activate)
+	4. now one can work in the environment - install packages, etc.
+		4.1 - to install Django use command: pip install Django
+		4.2 - to start a new project navigate to a desired folder in which the projects are
+					and use command: django-admin startproject projectname
+	5. use deactivate to exit the environment
