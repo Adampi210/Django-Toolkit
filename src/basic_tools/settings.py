@@ -1,5 +1,3 @@
-#start back here
-
 """
 Django settings for basic_tools project.
 
@@ -14,7 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR stores the path to the dorectory in which the manage.py file is stored
+# ex: /Users/username/Django-Toolkit/src
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -22,9 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Every Django project has a SECRET_KEY unique to and associated with it
+# Should not be made public (normally)
 SECRET_KEY = 'django-insecure-w*l-81h$i6z@upb*0$8n-3fy_56$yv&ubuz#r8@cn+j4zki6kl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Useful during development, when the app is finished should be turned to false
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -32,8 +34,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Components develped by default and by me - these are pieces of the whole django project
+# Third party and my own apps
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'django.contrib.admin', # 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# Handles requests and security
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,8 +56,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# This is how django knows how to rout any given url
 ROOT_URLCONF = 'basic_tools.urls'
 
+# Django renders out HTML templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -69,12 +76,14 @@ TEMPLATES = [
     },
 ]
 
+# how the server works
 WSGI_APPLICATION = 'basic_tools.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# Django maps databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -117,6 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+# where static files are stored (like images etc)
 STATIC_URL = 'static/'
 
 # Default primary key field type
