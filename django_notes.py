@@ -40,22 +40,31 @@
 			Starting development server at http://127.0.0.1:8000/ # this URL is where the project server is (the project listens for requests on port 8000 on my machine which is localhost)
 			Quit the server with CONTROL-C.
 		> localhost is a server that only processes requests on my system
-		
-Using Django:
-	- django-admin: allows for more things than just starting a new project
-	- python manage.py runserver: gives useful things about the project
-	- python manage.py createsuperuser: creates a user with access to the admin
-										// django creates a user that's in the database
 
-Apps:
-	- Apps in Django are components of the whole project - they hold code but they are not
-		like the regular apps on the phones
-	- python manage.py startapp appname: creates an app with designated name
-		- each app should do a designated and separate thing -> should be narrow and focused
-	- some files created in the app:
-		- models.py: stores the data that will be managed in the app
+4. Startting an app:
+	- Apps in Django are components of the whole project
+	- The apps work together to create the project
+		> python manage.py startapp appname - creates directory and files needed to build an app
+		> the appname directory contains several files used for building the app, including:
+			models.py, admin.py, apps.py, tests.py, views.py
+	
+	- models.py file stores the data that will be managed in the app
+		> A model tells Django how to handle and work with the data stored in the app
+		> A model is just a class - has attributes and methods
+		> To use models the app must be included in the overall project -> an app must be added to INSTALLED_APPS in settings.py
+		> After that Django should also modify the database using the command: python manage.py makemigrations appname
+		> This command uses Django to modify the database to store the data associated with new models defined
+		> Then apply the migration using: python manage.py migrate
+
+5. Django Admin Site
+	- Admin site allows the user to work easier with the models
+	- Only the administrators can use the admin site (not general users)
+	- Django has an option to create a superuser - a user with all privileges available on the site
+	- python manage.py createsuperuser - creates a superuser
+	- For the admin to be able to see created the models they need to be added in admin.py
+
 
 
 X. Sources:
-	-
+	- Python Crash Course, 2nd Edition by Eric Matthes
 '''
