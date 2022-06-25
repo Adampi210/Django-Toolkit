@@ -13,9 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
 
+# import a module and a function to manage URLs for the admin site
+from xml.etree.ElementInclude import include
+from django.contrib import admin
+from django.urls import path, include
+
+# this variable includes the sets of URLs from the apps in the project
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), # this defines URLs for the admin site
+    
+    # for this to work, I also need to add urls.py to the learning_logs app
+    path('', include('learning_logs.urls')), # this sets the base url to the homepage of learning_logs
 ]

@@ -41,7 +41,7 @@
 			Quit the server with CONTROL-C.
 		> localhost is a server that only processes requests on my system
 
-4. Startting an app:
+4. Starting an app:
 	- Apps in Django are components of the whole project
 	- The apps work together to create the project
 		> python manage.py startapp appname - creates directory and files needed to build an app
@@ -55,6 +55,10 @@
 		> After that Django should also modify the database using the command: python manage.py makemigrations appname
 		> This command uses Django to modify the database to store the data associated with new models defined
 		> Then apply the migration using: python manage.py migrate
+	- migrations algorithm:
+		> modify models.py
+		> python manage.py makemigrations appname
+		> python manage.py migrate
 
 5. Django Admin Site
 	- Admin site allows the user to work easier with the models
@@ -63,8 +67,43 @@
 	- python manage.py createsuperuser - creates a superuser
 	- For the admin to be able to see created the models they need to be added in admin.py
 
+6. Model Relationships
+	- models will have relatioships between each other that define how they interact - like in databases
+	- for example if I have a learning log with topics, one topic may have many entries -> many to one relationship
+			but one entry will (should) have only one topic
+	
+7. Django Shell
+	- The data entered on the website can be examined through an interactive terminal session
+	- Django Shell helps greatly test and troubleshoot the project
+	- the command to run it is: python manage.py shell
 
+8. Making Pages
+	- Making Pages in Django has 3 steps (can be done in any order preferable):
+		> define URLs
+		> write views
+		> write templates
+	- A URL pattern describes the way the URL is laid out -> tells Django what to look for when matching a browser request with a site URL
+	- Each URL maps to a particular view -> view retrieves and processes the data needed for that page
+	- view often renders the page using a template, which contains the overall structure of the page
 
+	- Mapping a URL:
+		> Users request pages by entering URLs into a browser and clicking links
+		> I have to decide what URLs are needed
+		> Usually the home page URL is first -> it is https://localhost:8000/ if nothing was modified
+		> It is the base URL and returns default Django site
+		> To change that base URL must be mapped to a desired page
+	
+	- Writing a View:
+		> A view function takes requests and prepares data to generate a page, then sends it back
+		> Often uses a template to define the look of a page
+		> When a URL request matches a defined pattern Django looks for a specific function in views.py
+			and runs that function with the request.
+		> To build a page a template function can be used
+	
+	- Writing a Template:
+		> Template = look of the page
+		> First a folder must be created to store the templates
+		> Templates can be written as HTML files
 X. Sources:
 	- Python Crash Course, 2nd Edition by Eric Matthes
 '''
