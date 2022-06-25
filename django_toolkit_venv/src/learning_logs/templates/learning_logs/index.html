@@ -1,6 +1,13 @@
-<!-- Quick recap for html-->
-<!-- <p></p> is a paragraph-->
+<!-- 
+    Quick recap for html
+    <p></p> is a paragraph
+    <ul></ul> is an unordered list = bullet list
+-->
 
-<p>Learning Log</p>
+<!-- As this page inherits from the parent page I first have extends tag to tell which template to inherit from-->
+{% extends "learning_logs/base.html" %}
 
-<p>Learning Log allows the user to save all the notes while learning</p>
+<!-- Then the child page determines what to put in the content block from the parent page-->
+{% block content %}
+    <p>Learning Log allows the user to save all the notes while learning</p>
+{% endblock content%}

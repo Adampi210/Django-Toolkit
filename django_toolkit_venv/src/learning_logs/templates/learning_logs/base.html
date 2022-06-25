@@ -1,0 +1,23 @@
+<!-- 
+    Parent template that all pages in this project will inherit from
+    First create a paragraph with the name of the project and a home page link
+    To generate a link a temple tag is used - indicated by the bracket and % signs 
+    The template tag below generates a URL matching a the URL pattern defined in learning_logs/urls.py 
+    with name index.
+    Link template is <a href = "link_url">link text</a>
+    By having a template tag generate URL the links only need to be changed in the urls.py files to update them
+    The first part of learning_logs:index is the namespace, and comes from the value app_name in learning_logs/urls.py
+-->
+
+<p>
+    <a href = "{% url 'learning_logs:index' %}"> Learning Log</a> - 
+    <a href = "{% url 'learning_logs:topics' %}"> Topics</a>
+</p>
+
+
+<!-- 
+    This is a pair of block tags, and is a placeholder. The child template will determine the
+    content that goes into this block.
+-->
+{% block content %}{% endblock content%}
+

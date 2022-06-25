@@ -1,0 +1,36 @@
+<!-- Template for the topics page-->
+
+<!--
+    As before the site inherits from the parent page, then puts a bullet list with all the topics
+    To do that it uses a for loop that has a template like this:
+        { % for item in list % } # without the spaces before and after %
+            do something
+
+        { % endfor % }
+        Then it prints a variable (which needs to be wrapped in double braces)
+        <li></li> indicates a list item
+        the empty tag tells Django what to do if the list is empty
+        
+
+-->
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+    <p>Topics</p>
+
+    <ul>
+    {% for topic in topics %}
+        <li>
+            <!-- 
+                To each topic name add a url linking it to the corresponding topic page
+                Since the url pattern requires topic_id argument I add the topic.id to the URL tag
+            -->
+            <a href = "{% url 'learning_logs:topic' topic.id %}">{{topic}}</a>
+        </li>
+        {% empty %}
+            <li>No topics have been added yet.</li>
+    {% endfor %}
+
+    </ul>
+
+{% endblock content %}

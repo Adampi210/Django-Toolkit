@@ -104,6 +104,9 @@
 		> Template = look of the page
 		> First a folder must be created to store the templates
 		> Templates can be written as HTML files
+		> When building a webpage some elements will be common on all pages, so I can write a base template with
+			repeating elements and then have each page inherit from the base
+		> To accomplish that I can create a parent template that all pages will inherit from
 X. Sources:
 	- Python Crash Course, 2nd Edition by Eric Matthes
 '''

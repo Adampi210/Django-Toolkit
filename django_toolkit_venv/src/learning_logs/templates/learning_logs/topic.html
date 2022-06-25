@@ -1,0 +1,26 @@
+<!-- Template for individual topic page-->
+
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+    <!-- First print the topic name and the entries-->
+    <p> Topic: {{topic}}</p>
+    <p> Entries:</p>
+    <ul>
+        <!-- 
+            For every entry  show the time it was added and its text
+            The | represents a filter 0 ex. linebreaks ensures the long text includes line breaks
+            rather than putting everythin in 1 line
+            The rest is the same as in topics.html    
+        -->
+        {% for entry in entries %}
+            <li>
+                <p>{{ entry.date_added|date:"G:i"}}</p>
+                <p>{{ entry.text|linebreaks}}</p>
+            </li>
+            {% empty %}
+                <li>There are no entries in this topic.</li>
+
+        {% endfor %}
+    </ul>
+{% endblock content %}
